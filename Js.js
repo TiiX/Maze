@@ -5,6 +5,11 @@ var maze5 = [[0,0,0,3,0],
             [1,1,0,1,1],
             [1,0,0,0,0]]
 
+var pos = {
+    x : 0,
+    y : 4
+}
+
 var canvas = document.getElementById("board");
 
 function refreshScreen(){
@@ -27,8 +32,6 @@ function refreshScreen(){
             else if (maze5[y][x] == 2) {
                 context.fillStyle = "white";
                 context.fillRect(x*boxSize, y*boxSize, boxSize, boxSize);
-                //Start of the player and mvt of the player
-                var dino = document.getElementById("player");
             }
             else if (maze5[y][x] == 3) {
                 context.fillStyle = "red";
@@ -37,6 +40,10 @@ function refreshScreen(){
         }
         
     }
+
+    //Start of the player 
+    var dino = document.getElementById("player");
+    context.drawImage(dino, pos.x * boxSize, pos.y * boxSize, boxSize, boxSize)
 
 }
 
