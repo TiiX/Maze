@@ -1,5 +1,5 @@
 /*Maze Templates*/
-var maze5 = [[0,0,0,3,0],
+var maze5 = [[0,0,0,2,0],
             [1,1,0,1,0],
             [0,1,1,1,0],
             [1,1,0,1,1],
@@ -11,6 +11,11 @@ var pos = {
 }
 
 var canvas = document.getElementById("board");
+
+var BRight = document.getElementById("right");
+var BLeft = document.getElementById("left");
+var BUp = document.getElementById("up");
+var BDown = document.getElementById("down");
 
 function refreshScreen(){
     var context = canvas.getContext("2d");
@@ -30,10 +35,6 @@ function refreshScreen(){
                 context.fillRect(x*boxSize, y*boxSize, boxSize, boxSize);
             }
             else if (maze5[y][x] == 2) {
-                context.fillStyle = "white";
-                context.fillRect(x*boxSize, y*boxSize, boxSize, boxSize);
-            }
-            else if (maze5[y][x] == 3) {
                 context.fillStyle = "red";
                 context.fillRect(x*boxSize, y*boxSize, boxSize, boxSize);
             }
@@ -48,3 +49,31 @@ function refreshScreen(){
 }
 
 refreshScreen();
+
+document.addEventListener("keyup", function(event) {
+    if (event.key === "ArrowRight") {
+        pos.x ++;
+        refreshScreen();
+    }
+}); 
+
+document.addEventListener("keyup", function(event) {
+    if (event.key === "ArrowLeft") {
+        --pos.x;
+        refreshScreen();
+    }
+}); 
+
+document.addEventListener("keyup", function(event) {
+    if (event.key === "ArrowUp") {
+        --pos.y;
+        refreshScreen();
+    }
+}); 
+
+document.addEventListener("keyup", function(event) {
+    if (event.key === "ArrowDown") {
+        pos.y ++;
+        refreshScreen();
+    }
+}); 
