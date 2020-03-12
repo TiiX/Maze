@@ -21,3 +21,5 @@ function refreshScreen(){
     }
 
 }
+
+refreshScreen();
