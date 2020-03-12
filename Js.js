@@ -28,7 +28,7 @@ function refreshScreen(){
                 context.fillStyle = "white";
                 context.fillRect(x*boxSize, y*boxSize, boxSize, boxSize);
                 //Start of the player and mvt of the player
-                var 
+                var dino = document.getElementById("player");
             }
             else if (maze5[y][x] == 3) {
                 context.fillStyle = "red";
