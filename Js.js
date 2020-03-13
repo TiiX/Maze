@@ -15,26 +15,26 @@ var canvas = document.getElementById("board");
 function mouvements(dir) {
     //Up
     if (dir === "Up") {
-        -- pos.y;
+        -- pos.;
         if (maze5[pos.y][pos.x] === 0) {pos.y ++;}
         refreshScreen();
     }
     //Down
     if (dir === "Down") {
-        -- pos.y;
-        if (maze5[pos.y][pos.x] === 0) {pos.y ++;}
+        pos.y++;
+        if (maze5[pos.y][pos.x] === 0) {--pos.y;}
         refreshScreen();
     }
     //Right
     if (dir === "Right") {
-        -- pos.y;
-        if (maze5[pos.y][pos.x] === 0) {pos.y ++;}
+        pos.x++;
+        if (maze5[pos.y][pos.x] === 0) {--pos.x ;}
         refreshScreen();
     }
     //Left
     if (dir === "Left") {
-        -- pos.y;
-        if (maze5[pos.y][pos.x] === 0) {pos.y ++;}
+       -- pos.x;
+        if (maze5[pos.y][pos.x] === 0) {pos.x ++;}
         refreshScreen();
     }
 
@@ -72,38 +72,30 @@ function refreshScreen(){
 }
 
 var BRight = document.getElementById("right").addEventListener("click", function(){
-    pos.x ++;
-    refreshScreen();
+    mouvements("Right");
 });
 var BLeft = document.getElementById("left").addEventListener("click", function(){
-    -- pos.x;
-    refreshScreen();
+    mouvements("Left");
 });
 var BUp = document.getElementById("up").addEventListener("click", function(){
-    -- pos.y;
-    refreshScreen();
+    mouvements("Up");
 });
 var BDown = document.getElementById("down").addEventListener("click", function(){
-    pos.y ++;
-    refreshScreen();
+    mouvements("Down");
 });
 
 document.addEventListener("keyup", function(event) {
     if (event.key === "ArrowRight") {
-        pos.x ++;
-        refreshScreen();
+        mouvements("Right");
     }
     else if (event.key === "ArrowLeft") {
-        --pos.x;
-        refreshScreen();
+        mouvements("Left");
     }
     else if (event.key === "ArrowUp") {
-        --pos.y;
-        refreshScreen();
+        mouvements("Up");
     }
     else if (event.key === "ArrowDown") {
-        pos.y ++;
-        refreshScreen();
+        mouvements("Down");
     }
 }); 
 
