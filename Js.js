@@ -6,40 +6,36 @@ var maze5 = [[0,0,0,2,0],
             [1,0,0,0,0]]
 
 var pos = {
-    x : 1,
+    x : 0,
     y : 4 
 }
 
 var canvas = document.getElementById("board");
 
 function verification_pos() {
-    if (pos.x > 5 || pos.x < 1 || pos.y > 5 || pos.y < 1) {return false;}
+    if (pos.x > 5 || pos.x < 0 || pos.y > 5 || pos.y < 0) {return false;}
     else {return true;}
 }
 
 function mouvements(dir) {
     //Up
     if (dir === "Up") {
-        -- pos.y;
-        if (maze5[pos.y][pos.x] === 0 && verification_pos()) {pos.y ++;}
+        if (maze5[pos.y - 1][pos.x] === 1 && verification_pos()) {--pos.y;}
         refreshScreen();
     }
     //Down
     if (dir === "Down") {
-        pos.y++;
-        if (maze5[pos.y][pos.x] === 0 && verification_pos()) {--pos.y;}
+        if (maze5[pos.y + 1][pos.x] === 1 && verification_pos()) {pos.y++;}
         refreshScreen();
     }
     //Right
     if (dir === "Right") {
-        pos.x++;
-        if (maze5[pos.y][pos.x] === 0 && verification_pos()) {--pos.x ;}
+        if (maze5[pos.y][pos.x + 1] === 1 && verification_pos()) {pos.x++;}
         refreshScreen();
     }
     //Left
     if (dir === "Left") {
-       -- pos.x;
-        if (maze5[pos.y][pos.x] === 0 && verification_pos()) {pos.x ++;}
+        if (maze5[pos.y][pos.x - 1] === 1 && verification_pos()) {--pos.x;}
         refreshScreen();
     }
 
