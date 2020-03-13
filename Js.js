@@ -12,10 +12,22 @@ var pos = {
 
 var canvas = document.getElementById("board");
 
-var BRight = document.getElementById("right");
-var BLeft = document.getElementById("left");
-var BUp = document.getElementById("up");
-var BDown = document.getElementById("down");
+var BRight = document.getElementById("right").addEventListener("click", function(){
+    pos.x ++;
+    refreshScreen();
+});
+var BLeft = document.getElementById("left").addEventListener("click", function(){
+    -- pos.x;
+    refreshScreen();
+});
+var BUp = document.getElementById("up").addEventListener("click", function(){
+    -- pos.y;
+    refreshScreen();
+});
+var BDown = document.getElementById("down").addEventListener("click", function(){
+    pos.y ++;
+    refreshScreen();
+});
 
 function refreshScreen(){
     var context = canvas.getContext("2d");
@@ -55,24 +67,15 @@ document.addEventListener("keyup", function(event) {
         pos.x ++;
         refreshScreen();
     }
-}); 
-
-document.addEventListener("keyup", function(event) {
-    if (event.key === "ArrowLeft") {
+    else if (event.key === "ArrowLeft") {
         --pos.x;
         refreshScreen();
     }
-}); 
-
-document.addEventListener("keyup", function(event) {
-    if (event.key === "ArrowUp") {
+    else if (event.key === "ArrowUp") {
         --pos.y;
         refreshScreen();
     }
-}); 
-
-document.addEventListener("keyup", function(event) {
-    if (event.key === "ArrowDown") {
+    else if (event.key === "ArrowDown") {
         pos.y ++;
         refreshScreen();
     }
