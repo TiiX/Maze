@@ -20,22 +20,22 @@ function verification_pos() {
 function mouvements(dir) {
     //Up
     if (dir === "Up") {
-        if (maze5[pos.y - 1][pos.x] === 1 && verification_pos()) {--pos.y;}
+        if (maze5[pos.y - 1][pos.x] === 1 || maze5[pos.y - 1][pos.x] === 2 && verification_pos()) {--pos.y;}
         refreshScreen();
     }
     //Down
     if (dir === "Down") {
-        if (maze5[pos.y + 1][pos.x] === 1 && verification_pos()) {pos.y++;}
+        if (maze5[pos.y + 1][pos.x] === 1 || maze5[pos.y + 1][pos.x] === 2 && verification_pos()) {pos.y++;}
         refreshScreen();
     }
     //Right
     if (dir === "Right") {
-        if (maze5[pos.y][pos.x + 1] === 1 && verification_pos()) {pos.x++;}
+        if (maze5[pos.y][pos.x + 1] === 1 || maze5[pos.y][pos.x + 1] === 2 && verification_pos()) {pos.x++;}
         refreshScreen();
     }
     //Left
     if (dir === "Left") {
-        if (maze5[pos.y][pos.x - 1] === 1 && verification_pos()) {--pos.x;}
+        if (maze5[pos.y][pos.x - 1] === 1 || maze5[pos.y][pos.x - 1] === 2 && verification_pos()) {--pos.x;}
         refreshScreen();
     }
 
